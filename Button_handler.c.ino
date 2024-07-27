@@ -45,7 +45,8 @@ void button_isr_handler(void* arg)
     }
 }
 
-void setup_button() {
+void setup_button() 
+{
     gpio_config_t io_conf = {
         .intr_type = GPIO_INTR_NEGEDGE,
         .mode = GPIO_MODE_INPUT,
