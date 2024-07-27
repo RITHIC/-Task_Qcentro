@@ -23,7 +23,7 @@ void button_isr_handler(void* arg)
     uint32_t current_time = esp_timer_get_time();
 
     if (gpio_get_level(BUTTON_PIN) == 0) 
-    { // Button pressed
+    {    // Button pressed
         if (!is_pressed) 
         {
             is_pressed = true;
@@ -36,7 +36,7 @@ void button_isr_handler(void* arg)
         }
     } 
     else
-    { // Button released
+    {    // Button released
         if (is_pressed)
         {
             is_pressed = false;
