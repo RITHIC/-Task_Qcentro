@@ -3,7 +3,7 @@
 #include "esp_http_client.h"
 #include "esp_log.h"
 
-#define OTA_URL "   "//The URL where the new firmware binary is located.
+#define OTA_URL "http://rs/firmware.bin"//The URL where the new firmware binary is located.
 
 static const char *TAG = "OTA";
 
