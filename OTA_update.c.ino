@@ -7,7 +7,8 @@
 
 static const char *TAG = "OTA";
 
-void perform_ota_update() {
+void perform_ota_update() 
+{
     esp_err_t err;
     esp_http_client_config_t config = 
     {
