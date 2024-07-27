@@ -12,16 +12,20 @@ static const char *TAG = "BUTTON";
 static esp_timer_handle_t press_timer = NULL;
 static bool is_pressed = false;
 
-static void button_press_timer_callback(void* arg) {
+static void button_press_timer_callback(void* arg)
+{
     perform_ota_update();
 }
 
-void button_isr_handler(void* arg) {
+void button_isr_handler(void* arg)
+{
     static uint32_t last_press_time = 0;
     uint32_t current_time = esp_timer_get_time();
 
-    if (gpio_get_level(BUTTON_PIN) == 0) { // Button pressed
-        if (!is_pressed) {
+    if (gpio_get_level(BUTTON_PIN) == 0) 
+    { // Button pressed
+        if (!is_pressed) 
+        {
             is_pressed = true;
             esp_timer_create_args_t timer_args = {
                 .callback = button_press_timer_callback,
@@ -30,8 +34,11 @@ void button_isr_handler(void* arg) {
             esp_timer_create(&timer_args, &press_timer);
             esp_timer_start_once(press_timer, LONG_PRESS_DURATION_MS * 1000);
         }
-    } else { // Button released
-        if (is_pressed) {
+    } 
+    else
+    { // Button released
+        if (is_pressed)
+        {
             is_pressed = false;
             esp_timer_stop(press_timer);
         }
